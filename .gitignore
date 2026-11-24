@@ -221,3 +221,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Node / Next.js observatory ---
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+playwright-report/
+test-results/
+.vercel/
+.env.local
+.env*.local
+
+# Private runtime artifacts never belong in the public repo
+.tatd-cache/
+*.sqlite3
+*.sqlite3-journal
+tatd-research/
+evidence/

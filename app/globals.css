@@ -1,0 +1,457 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #090b0f;
+  --surface: #10141b;
+  --surface-raised: #161b24;
+  --surface-hover: #1b212b;
+  --border: #272d36;
+  --border-strong: #39404b;
+  --text-primary: #eeeae2;
+  --text-secondary: #a0a7b1;
+  --text-muted: #747c89;
+  --brand-gold: #c4a36e;
+  --brand-gold-light: #e4c994;
+  --agent-m01: #508fcf;
+  --agent-m02: #a78bfa;
+  --agent-m03: #36b5a0;
+  --agent-m04: #d5b477;
+  --positive: #55b88a;
+  --negative: #d46b6b;
+  --warning: #d5a54d;
+  --unknown: #8992a0;
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 96px 96px;
+  background-position: center top;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(196, 163, 110, 0.28);
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1px solid var(--brand-gold);
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 32px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .shell {
+      padding-inline: 48px;
+    }
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .label-strong {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  .panel-raised {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  .hairline {
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .mono-data {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .data-table thead th {
+    text-align: left;
+    font-weight: 500;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .data-table tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(39, 45, 54, 0.7);
+    vertical-align: top;
+    color: var(--text-secondary);
+  }
+
+  .data-table tbody tr:hover td {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+  }
+
+  .data-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .link-underline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-primary);
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: var(--brand-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 220ms ease;
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 18px;
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    background: transparent;
+    transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: var(--surface-hover);
+    border-color: var(--brand-gold);
+  }
+
+  .btn-primary {
+    background: var(--brand-gold);
+    border-color: var(--brand-gold);
+    color: #12100c;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: var(--brand-gold-light);
+    border-color: var(--brand-gold-light);
+    color: #12100c;
+  }
+
+  .editorial {
+    max-width: 72ch;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  .editorial h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .editorial h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .editorial p {
+    margin-bottom: 1rem;
+  }
+
+  .editorial ul {
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+    list-style: none;
+  }
+
+  .editorial li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    padding-left: 0.75rem;
+  }
+
+  .editorial li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 4px;
+    height: 1px;
+    background: var(--brand-gold);
+  }
+
+  .editorial code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--brand-gold-light);
+    background: var(--surface-raised);
+    padding: 1px 5px;
+    border: 1px solid var(--border);
+  }
+
+  .editorial a {
+    color: var(--brand-gold-light);
+    border-bottom: 1px solid rgba(196, 163, 110, 0.4);
+  }
+
+  .editorial a:hover {
+    border-bottom-color: var(--brand-gold);
+  }
+
+  .rule-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .rule-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fade-edge {
+    mask-image: linear-gradient(to right, transparent, black 24px, black calc(100% - 24px), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   THE FOURTH — memetic landing layer (WO-012-A)
+   Brand tokens are scoped to .landing. The operational interface
+   keeps the WO-012 tokens above; brand colors are never used as
+   operational health indicators.
+   ============================================================ */
+.landing {
+  --brand-ink: #090909;
+  --brand-graphite: #252629;
+  --brand-stone: #514b40;
+  --brand-alchemical: #b69a65;
+  --brand-ivory: #e9dfc8;
+}
+
+.landing .landing-hero-glow {
+  background:
+    radial-gradient(58% 58% at 72% 42%, rgba(182, 154, 101, 0.12), transparent 72%),
+    radial-gradient(40% 40% at 20% 80%, rgba(80, 143, 207, 0.06), transparent 70%);
+}
+
+.landing .landing-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(182, 154, 101, 0.55), transparent);
+}
+
+.landing .landing-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-alchemical);
+}
+
+.landing .landing-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.landing .landing-prose {
+  max-width: 42rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Genesis sequence — CSS-only, no WebGL. */
+.landing .genesis-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: genesis-draw 1.1s ease-out forwards;
+}
+
+.landing .genesis-fade {
+  opacity: 0;
+  animation: genesis-fade 0.9s ease-out forwards;
+}
+
+@keyframes genesis-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes genesis-fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing .genesis-draw {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .landing .genesis-fade {
+    opacity: 1;
+    animation: none;
+  }
+}

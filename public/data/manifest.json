@@ -1,0 +1,11 @@
+{
+  "byte_size": 53010,
+  "data_mode": "SNAPSHOT",
+  "execution_mode": "PAPER",
+  "generated_at": "2026-11-24T16:56:32Z",
+  "published_at": "2026-11-24T16:56:32Z",
+  "schema_version": "1.0",
+  "snapshot_digest": "sha256:ceae4efec9ff6e46135b0b847402cd5e38a1950042bdd6218fd794af19590d56",
+  "snapshot_id": "snap-20261124T165632Z-6e2fa5f56bef",
+  "source_runtime_id": "tatd-paper-runtime"
+}

@@ -1,0 +1,1791 @@
+{
+  "agents": [
+    {
+      "color": "#508FCF",
+      "configured_model": "deepseek-flash",
+      "glyph": "scout",
+      "href": "/desk/market",
+      "id": "M01",
+      "last_observed": "2026-11-24T16:56:32Z",
+      "latest_output_summary": "Scout qualified 1 candidate(s)",
+      "name": "The Scout",
+      "provider_dependencies": [
+        "DeepSeek",
+        "DEX Screener",
+        "Bitquery"
+      ],
+      "qualification_state": "EXPLORATORY",
+      "responsibility": "Finds opportunities in on-chain activity.",
+      "role": "Market Intelligence",
+      "runtime_state": "IDLE"
+    },
+    {
+      "color": "#A78BFA",
+      "configured_model": "claude-sonnet-5-5",
+      "glyph": "mind",
+      "href": "/desk/memetic",
+      "id": "M02",
+      "last_observed": "2026-11-24T16:56:02Z",
+      "latest_output_summary": "Narrative clusters observed",
+      "name": "The Mind",
+      "provider_dependencies": [
+        "Virlo",
+        "X Intelligence",
+        "News Intelligence"
+      ],
+      "qualification_state": "EXPLORATORY",
+      "responsibility": "Discovers emerging cultural narratives.",
+      "role": "Memetic Intelligence",
+      "runtime_state": "IDLE"
+    },
+    {
+      "color": "#36B5A0",
+      "configured_model": "glm-5.3-flash",
+      "glyph": "watcher",
+      "href": "/desk/ecosystem",
+      "id": "M03",
+      "last_observed": "2026-11-24T16:56:02Z",
+      "latest_output_summary": "Own-token health: grow (score 83)",
+      "name": "The Watcher",
+      "provider_dependencies": [
+        "DEX Screener",
+        "Own token market data"
+      ],
+      "qualification_state": "EXPLORATORY",
+      "responsibility": "Observes the economic condition of the system.",
+      "role": "Ecosystem Intelligence",
+      "runtime_state": "IDLE"
+    },
+    {
+      "color": "#D5B477",
+      "configured_model": "decision-models/baseten-groundhog-latest",
+      "glyph": "executor",
+      "href": "/desk/decisions",
+      "id": "M04",
+      "last_observed": "2026-11-24T16:56:32Z",
+      "latest_output_summary": "Decision model proposed buy (confidence 0.943)",
+      "name": "The Executor",
+      "provider_dependencies": [
+        "Groundhog 1",
+        "Bison 1"
+      ],
+      "qualification_state": "EXPLORATORY",
+      "responsibility": "Evaluates evidence and proposes action.",
+      "role": "Decision Intelligence",
+      "runtime_state": "IDLE"
+    }
+  ],
+  "data_mode": "SNAPSHOT",
+  "data_quality": "SYNTHETIC_DEMO",
+  "decisions": [
+    {
+      "domain": "TRADING",
+      "evidence_references": [],
+      "execution_status": "entry",
+      "id": "decision-8",
+      "model_identifier": "decision-models/baseten-bison-latest",
+      "outcome": "entry",
+      "policy_verdict": "PASSED",
+      "proposed_action": "buy",
+      "routing_reason": "policy",
+      "stages": [
+        {
+          "description": "Originating scanner or trigger.",
+          "evidence_state": "OBSERVED",
+          "id": "discovery",
+          "payload": {
+            "candidate_ids": [
+              "solana:DEMO-POOL"
+            ]
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Discovery"
+        },
+        {
+          "description": "M01 market data available at decision time.",
+          "evidence_state": "OBSERVED",
+          "id": "market",
+          "payload": {
+            "candidates": [
+              {
+                "cluster": "demo-culture",
+                "created_at": 1795538642,
+                "id": "solana:DEMO-POOL",
+                "liquidity_usd": 62000,
+                "matched_presets": [
+                  "early",
+                  "momentum"
+                ],
+                "price_usd": "0.40",
+                "token": "solana:DEMO",
+                "volume_h1_usd": 52000
+              }
+            ],
+            "reason": "Paper preset matches"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Market evidence"
+        },
+        {
+          "description": "M02 observations and interpretations.",
+          "evidence_state": "OBSERVED",
+          "id": "narrative",
+          "payload": {
+            "demo-culture": {
+              "freshness": 95,
+              "momentum": 94,
+              "notes": "Paper observation",
+              "strength": 96,
+              "unsaturated": 90,
+              "weighted_score": 94.3
+            }
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Narrative evidence"
+        },
+        {
+          "description": "M03 system and capital constraints.",
+          "evidence_state": "OBSERVED",
+          "id": "economic",
+          "payload": {
+            "phase": "grow",
+            "reason": "Paper liquidity and momentum rubric",
+            "score": 83,
+            "token": "solana:TATD"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Economic context"
+        },
+        {
+          "description": "Structured M04 output.",
+          "evidence_state": "INFERRED",
+          "id": "model",
+          "payload": {
+            "action": "buy",
+            "confidence": 0.943,
+            "reason": "Paper narrative rubric",
+            "size": "large"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Model evaluation"
+        },
+        {
+          "description": "Deterministic checks and rejection reasons.",
+          "evidence_state": "OBSERVED",
+          "id": "policy",
+          "payload": {
+            "status": null,
+            "verdict": "PASSED"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Policy evaluation"
+        },
+        {
+          "description": "Actual, simulated or rejected action.",
+          "evidence_state": "OBSERVED",
+          "id": "execution",
+          "payload": {
+            "status": "entry"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Execution"
+        },
+        {
+          "description": "Observed trade or treasury result.",
+          "evidence_state": "UNKNOWN",
+          "id": "outcome",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Outcome"
+        }
+      ],
+      "structured_response": {
+        "action": "buy",
+        "confidence": 0.943,
+        "reason": "Paper narrative rubric",
+        "size": "large"
+      },
+      "summary": "Trade decision: buy (entry)",
+      "timestamp": "2026-11-24T16:56:02Z"
+    },
+    {
+      "domain": "TREASURY",
+      "evidence_references": [],
+      "execution_status": "hold",
+      "id": "decision-9",
+      "model_identifier": "decision-model",
+      "outcome": "hold",
+      "policy_verdict": "EVALUATED",
+      "proposed_action": "HOLD",
+      "routing_reason": "timer",
+      "stages": [
+        {
+          "description": "Originating scanner or trigger.",
+          "evidence_state": "OBSERVED",
+          "id": "discovery",
+          "payload": {
+            "candidate_ids": [
+              "solana:DEMO-POOL"
+            ]
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Discovery"
+        },
+        {
+          "description": "M01 market data available at decision time.",
+          "evidence_state": "OBSERVED",
+          "id": "market",
+          "payload": {
+            "candidates": [
+              {
+                "cluster": "demo-culture",
+                "created_at": 1795538642,
+                "id": "solana:DEMO-POOL",
+                "liquidity_usd": 62000,
+                "matched_presets": [
+                  "early",
+                  "momentum"
+                ],
+                "price_usd": "0.40",
+                "token": "solana:DEMO",
+                "volume_h1_usd": 52000
+              }
+            ],
+            "reason": "Paper preset matches"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Market evidence"
+        },
+        {
+          "description": "M02 observations and interpretations.",
+          "evidence_state": "OBSERVED",
+          "id": "narrative",
+          "payload": {
+            "demo-culture": {
+              "freshness": 95,
+              "momentum": 94,
+              "notes": "Paper observation",
+              "strength": 96,
+              "unsaturated": 90,
+              "weighted_score": 94.3
+            }
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Narrative evidence"
+        },
+        {
+          "description": "M03 system and capital constraints.",
+          "evidence_state": "OBSERVED",
+          "id": "economic",
+          "payload": {
+            "phase": "grow",
+            "reason": "Paper liquidity and momentum rubric",
+            "score": 83,
+            "token": "solana:TATD"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Economic context"
+        },
+        {
+          "description": "Structured M04 output.",
+          "evidence_state": "INFERRED",
+          "id": "model",
+          "payload": {
+            "action": "buy",
+            "confidence": 0.943,
+            "reason": "Paper narrative rubric",
+            "size": "large"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Model evaluation"
+        },
+        {
+          "description": "Deterministic checks and rejection reasons.",
+          "evidence_state": "OBSERVED",
+          "id": "policy",
+          "payload": {
+            "status": null,
+            "verdict": "PASSED"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Policy evaluation"
+        },
+        {
+          "description": "Actual, simulated or rejected action.",
+          "evidence_state": "OBSERVED",
+          "id": "execution",
+          "payload": {
+            "status": "entry"
+          },
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Execution"
+        },
+        {
+          "description": "Observed trade or treasury result.",
+          "evidence_state": "UNKNOWN",
+          "id": "outcome",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:02Z",
+          "title": "Outcome"
+        }
+      ],
+      "structured_response": {},
+      "summary": "Treasury decision: hold (hold)",
+      "timestamp": "2026-11-24T16:56:02Z"
+    },
+    {
+      "domain": "TREASURY",
+      "evidence_references": [],
+      "execution_status": "paper_allocated",
+      "id": "decision-15",
+      "model_identifier": "decision-models/baseten-groundhog-latest",
+      "outcome": "paper_allocated",
+      "policy_verdict": "PASSED",
+      "proposed_action": "burn",
+      "routing_reason": "profit_threshold",
+      "stages": [
+        {
+          "description": "Originating scanner or trigger.",
+          "evidence_state": "OBSERVED",
+          "id": "discovery",
+          "payload": {
+            "candidate_ids": [
+              "solana:DEMO-POOL"
+            ]
+          },
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Discovery"
+        },
+        {
+          "description": "M01 market data available at decision time.",
+          "evidence_state": "OBSERVED",
+          "id": "market",
+          "payload": {
+            "candidates": [
+              {
+                "cluster": "demo-culture",
+                "created_at": 1795538642,
+                "id": "solana:DEMO-POOL",
+                "liquidity_usd": 62000,
+                "matched_presets": [
+                  "early",
+                  "momentum"
+                ],
+                "price_usd": "0.48",
+                "token": "solana:DEMO",
+                "volume_h1_usd": 52000
+              }
+            ],
+            "reason": "Paper preset matches"
+          },
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Market evidence"
+        },
+        {
+          "description": "M02 observations and interpretations.",
+          "evidence_state": "UNKNOWN",
+          "id": "narrative",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Narrative evidence"
+        },
+        {
+          "description": "M03 system and capital constraints.",
+          "evidence_state": "UNKNOWN",
+          "id": "economic",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Economic context"
+        },
+        {
+          "description": "Structured M04 output.",
+          "evidence_state": "INFERRED",
+          "id": "model",
+          "payload": {
+            "action": "burn",
+            "confidence": 0.85,
+            "reason": "Paper liquidity and momentum rubric"
+          },
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Model evaluation"
+        },
+        {
+          "description": "Deterministic checks and rejection reasons.",
+          "evidence_state": "OBSERVED",
+          "id": "policy",
+          "payload": {
+            "status": "paper_allocated",
+            "verdict": "EVALUATED"
+          },
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Policy evaluation"
+        },
+        {
+          "description": "Actual, simulated or rejected action.",
+          "evidence_state": "OBSERVED",
+          "id": "execution",
+          "payload": {
+            "status": "paper_allocated"
+          },
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Execution"
+        },
+        {
+          "description": "Observed trade or treasury result.",
+          "evidence_state": "OBSERVED",
+          "id": "outcome",
+          "payload": {
+            "pair_id": "solana:DEMO-POOL",
+            "pnl_cents": 1980,
+            "price_usd": "0.48",
+            "proceeds_cents": 12000,
+            "reason": "take_profit",
+            "trade_id": 1
+          },
+          "timestamp": "2026-11-24T16:56:17Z",
+          "title": "Outcome"
+        }
+      ],
+      "structured_response": {
+        "action": "burn",
+        "confidence": 0.85,
+        "reason": "Paper liquidity and momentum rubric"
+      },
+      "summary": "Treasury decision: burn (paper_allocated)",
+      "timestamp": "2026-11-24T16:56:17Z"
+    },
+    {
+      "domain": "TRADING",
+      "evidence_references": [],
+      "execution_status": "entry",
+      "id": "decision-20",
+      "model_identifier": "decision-models/baseten-bison-latest",
+      "outcome": "entry",
+      "policy_verdict": "PASSED",
+      "proposed_action": "buy",
+      "routing_reason": "policy",
+      "stages": [
+        {
+          "description": "Originating scanner or trigger.",
+          "evidence_state": "OBSERVED",
+          "id": "discovery",
+          "payload": {
+            "candidate_ids": [
+              "solana:DEMO-POOL"
+            ]
+          },
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Discovery"
+        },
+        {
+          "description": "M01 market data available at decision time.",
+          "evidence_state": "OBSERVED",
+          "id": "market",
+          "payload": {
+            "candidates": [
+              {
+                "cluster": "demo-culture",
+                "created_at": 1795538642,
+                "id": "solana:DEMO-POOL",
+                "liquidity_usd": 62000,
+                "matched_presets": [
+                  "early",
+                  "momentum"
+                ],
+                "price_usd": "0.35",
+                "token": "solana:DEMO",
+                "volume_h1_usd": 52000
+              }
+            ],
+            "reason": "Paper preset matches"
+          },
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Market evidence"
+        },
+        {
+          "description": "M02 observations and interpretations.",
+          "evidence_state": "UNKNOWN",
+          "id": "narrative",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Narrative evidence"
+        },
+        {
+          "description": "M03 system and capital constraints.",
+          "evidence_state": "UNKNOWN",
+          "id": "economic",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Economic context"
+        },
+        {
+          "description": "Structured M04 output.",
+          "evidence_state": "INFERRED",
+          "id": "model",
+          "payload": {
+            "action": "buy",
+            "confidence": 0.943,
+            "reason": "Paper narrative rubric",
+            "size": "large"
+          },
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Model evaluation"
+        },
+        {
+          "description": "Deterministic checks and rejection reasons.",
+          "evidence_state": "OBSERVED",
+          "id": "policy",
+          "payload": {
+            "status": null,
+            "verdict": "PASSED"
+          },
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Policy evaluation"
+        },
+        {
+          "description": "Actual, simulated or rejected action.",
+          "evidence_state": "OBSERVED",
+          "id": "execution",
+          "payload": {
+            "status": "entry"
+          },
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Execution"
+        },
+        {
+          "description": "Observed trade or treasury result.",
+          "evidence_state": "UNKNOWN",
+          "id": "outcome",
+          "payload": {},
+          "timestamp": "2026-11-24T16:56:32Z",
+          "title": "Outcome"
+        }
+      ],
+      "structured_response": {
+        "action": "buy",
+        "confidence": 0.943,
+        "reason": "Paper narrative rubric",
+        "size": "large"
+      },
+      "summary": "Trade decision: buy (entry)",
+      "timestamp": "2026-11-24T16:56:32Z"
+    }
+  ],
+  "economy": {
+    "allocation": [
+      {
+        "domain": "Developer",
+        "note": "Developer wallet",
+        "pct": 20,
+        "wallet": "W00"
+      },
+      {
+        "domain": "Trading",
+        "note": "Trading capital",
+        "pct": 56,
+        "wallet": "W01"
+      },
+      {
+        "domain": "Model Intelligence",
+        "note": "Intelligence reserve",
+        "pct": 16,
+        "wallet": "W01B"
+      },
+      {
+        "domain": "Operational Intelligence",
+        "note": "Operational reserve",
+        "pct": 8,
+        "wallet": "W01C"
+      }
+    ],
+    "allocation_observed_cents": {
+      "developer": 20000,
+      "intelligence": 16000,
+      "operational": 8000,
+      "trading": 56000
+    },
+    "fee_policy": {
+      "creator_dev_pct": 20,
+      "creator_operating_pct": 80,
+      "note": "Existing 20:80 creator fee policy. Operating share is split 70/20/10 by the approved allocation."
+    },
+    "prepaid_credits": {
+      "remaining_micros": null,
+      "runway_days": null,
+      "status": "UNKNOWN"
+    },
+    "reconciliation": [
+      {
+        "label": "Paper ledger gross creator fees",
+        "note": "Sum of protocol fee credits",
+        "value_cents": 100000
+      },
+      {
+        "label": "Allocated to trading",
+        "note": "Current trading balance",
+        "value_cents": 46020
+      }
+    ],
+    "transfers": [],
+    "wallets": [
+      {
+        "address": "MASKED",
+        "balance_cents": 20000,
+        "id": "W00",
+        "note": "20% of creator fees",
+        "role": "Developer",
+        "state": "OBSERVED"
+      },
+      {
+        "address": "MASKED",
+        "balance_cents": 46020,
+        "id": "W01",
+        "note": "80% of creator fees; trading capital",
+        "role": "Operating",
+        "state": "OBSERVED"
+      },
+      {
+        "address": "MASKED",
+        "balance_cents": 16000,
+        "id": "W01B",
+        "note": "Model intelligence reserve",
+        "role": "Intelligence Payment",
+        "state": "OBSERVED"
+      },
+      {
+        "address": "MASKED",
+        "balance_cents": 7970,
+        "id": "W01C",
+        "note": "Operational reserve",
+        "role": "Operational Payment",
+        "state": "OBSERVED"
+      },
+      {
+        "address": "MASKED",
+        "balance_cents": 0,
+        "id": "W02",
+        "note": "Positive realized net profits",
+        "role": "Profit Treasury",
+        "state": "OBSERVED"
+      }
+    ]
+  },
+  "ecosystem": {
+    "health": [
+      {
+        "dimension": "fee_health",
+        "note": "",
+        "value": null
+      },
+      {
+        "dimension": "holder_health",
+        "note": "",
+        "value": null
+      },
+      {
+        "dimension": "liquidity_health",
+        "note": "",
+        "value": null
+      },
+      {
+        "dimension": "market_health",
+        "note": "",
+        "value": null
+      },
+      {
+        "dimension": "operating_sustainability",
+        "note": "",
+        "value": null
+      },
+      {
+        "dimension": "treasury_health",
+        "note": "",
+        "value": null
+      }
+    ],
+    "history": [
+      {
+        "at": "2026-11-24T16:56:02Z",
+        "liquidity": null,
+        "market_cap": null
+      },
+      {
+        "at": "2026-11-24T16:56:17Z",
+        "liquidity": null,
+        "market_cap": null
+      },
+      {
+        "at": "2026-11-24T16:56:32Z",
+        "liquidity": null,
+        "market_cap": null
+      }
+    ],
+    "own_token": {
+      "creator_fees": 100000,
+      "holders": 2100,
+      "launch_state": "PRE_LAUNCH",
+      "liquidity": null,
+      "market_cap": null,
+      "mint": null,
+      "operating_mode": "grow"
+    }
+  },
+  "events": [
+    {
+      "event_id": "1",
+      "event_type": "fee.received",
+      "evidence_state": "OBSERVED",
+      "family": "payment",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [
+        "demo-fee-1795539362"
+      ],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Creator fee credited: $1,000.00"
+    },
+    {
+      "event_id": "2",
+      "event_type": "fee.allocated",
+      "evidence_state": "OBSERVED",
+      "family": "payment",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Fee split 20/80 — developer $200.00, operating $560.00, intelligence $160.00, operational $80.00"
+    },
+    {
+      "event_id": "3",
+      "event_type": "narrative.updated",
+      "evidence_state": "INFERRED",
+      "family": "memetic",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Narrative clusters observed"
+    },
+    {
+      "event_id": "4",
+      "event_type": "ecosystem.updated",
+      "evidence_state": "INFERRED",
+      "family": "ecosystem",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Own-token health: grow (score 83)"
+    },
+    {
+      "event_id": "5",
+      "event_type": "candidate.discovered",
+      "evidence_state": "OBSERVED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scanner prefilter: 1 candidate(s)"
+    },
+    {
+      "event_id": "6",
+      "event_type": "candidate.qualified",
+      "evidence_state": "INFERRED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scout qualified 1 candidate(s)"
+    },
+    {
+      "event_id": "8",
+      "event_type": "decision.completed",
+      "evidence_state": "OBSERVED",
+      "family": "decision",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Trade decision: buy (entry)"
+    },
+    {
+      "event_id": "9",
+      "event_type": "treasury.proposed",
+      "evidence_state": "OBSERVED",
+      "family": "treasury",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Treasury decision: hold (hold)"
+    },
+    {
+      "event_id": "10",
+      "event_type": "scan.completed",
+      "evidence_state": "OBSERVED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:02Z",
+      "published_at": "2026-11-24T16:56:02Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scan completed: 1 candidate(s), 1 decision(s), 0 closed"
+    },
+    {
+      "event_id": "11",
+      "event_type": "candidate.discovered",
+      "evidence_state": "OBSERVED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:17Z",
+      "published_at": "2026-11-24T16:56:17Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scanner prefilter: 1 candidate(s)"
+    },
+    {
+      "event_id": "12",
+      "event_type": "candidate.qualified",
+      "evidence_state": "INFERRED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:17Z",
+      "published_at": "2026-11-24T16:56:17Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scout qualified 1 candidate(s)"
+    },
+    {
+      "event_id": "13",
+      "event_type": "position.closed",
+      "evidence_state": "OBSERVED",
+      "family": "position",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:17Z",
+      "published_at": "2026-11-24T16:56:17Z",
+      "related": [
+        "solana:DEMO-POOL"
+      ],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Position closed: take_profit PnL $19.80"
+    },
+    {
+      "event_id": "15",
+      "event_type": "treasury.proposed",
+      "evidence_state": "OBSERVED",
+      "family": "treasury",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:17Z",
+      "published_at": "2026-11-24T16:56:17Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Treasury decision: burn (paper_allocated)"
+    },
+    {
+      "event_id": "16",
+      "event_type": "scan.completed",
+      "evidence_state": "OBSERVED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:17Z",
+      "published_at": "2026-11-24T16:56:17Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scan completed: 1 candidate(s), 0 decision(s), 1 closed"
+    },
+    {
+      "event_id": "17",
+      "event_type": "candidate.discovered",
+      "evidence_state": "OBSERVED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:32Z",
+      "published_at": "2026-11-24T16:56:32Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scanner prefilter: 1 candidate(s)"
+    },
+    {
+      "event_id": "18",
+      "event_type": "candidate.qualified",
+      "evidence_state": "INFERRED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:32Z",
+      "published_at": "2026-11-24T16:56:32Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scout qualified 1 candidate(s)"
+    },
+    {
+      "event_id": "20",
+      "event_type": "decision.completed",
+      "evidence_state": "OBSERVED",
+      "family": "decision",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:32Z",
+      "published_at": "2026-11-24T16:56:32Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Trade decision: buy (entry)"
+    },
+    {
+      "event_id": "21",
+      "event_type": "scan.completed",
+      "evidence_state": "OBSERVED",
+      "family": "market",
+      "mode": "PAPER",
+      "occurred_at": "2026-11-24T16:56:32Z",
+      "published_at": "2026-11-24T16:56:32Z",
+      "related": [],
+      "source": "runtime",
+      "source_class": "SYNTHETIC_DEMO",
+      "summary": "Scan completed: 1 candidate(s), 1 decision(s), 0 closed"
+    }
+  ],
+  "execution_mode": "PAPER",
+  "generated_at": "2026-11-24T16:56:32Z",
+  "limitations": [
+    "The public application reads a sanitized snapshot, not the private runtime.",
+    "Wallet addresses are masked by the publication policy.",
+    "The public application is not connected to the private trading runtime.",
+    "The demo database is synthetic. Synthetic snapshots are labeled.",
+    "Research figures are reported evidence, not live runtime statistics.",
+    "No treasury or trading action can be initiated from the public application."
+  ],
+  "market": {
+    "activation": "SHADOW",
+    "candidates": [
+      {
+        "age_seconds": null,
+        "buy_sell": null,
+        "decision_status": "OBSERVED",
+        "integrity_verdict": "UNKNOWN",
+        "liquidity": null,
+        "market_cap": null,
+        "mint": null,
+        "narrative_match": null,
+        "observed_at": "2026-11-24T16:56:02Z",
+        "pool": "solana:DEMO-POOL",
+        "scanner": null,
+        "token": "solana:DEMO",
+        "unique_wallets": null,
+        "volume": null
+      },
+      {
+        "age_seconds": null,
+        "buy_sell": null,
+        "decision_status": "OBSERVED",
+        "integrity_verdict": "UNKNOWN",
+        "liquidity": null,
+        "market_cap": null,
+        "mint": null,
+        "narrative_match": null,
+        "observed_at": "2026-11-24T16:56:02Z",
+        "pool": "solana:THIN-POOL",
+        "scanner": null,
+        "token": "solana:THIN",
+        "unique_wallets": null,
+        "volume": null
+      },
+      {
+        "age_seconds": null,
+        "buy_sell": null,
+        "decision_status": "OBSERVED",
+        "integrity_verdict": "UNKNOWN",
+        "liquidity": null,
+        "market_cap": null,
+        "mint": null,
+        "narrative_match": null,
+        "observed_at": "2026-11-24T16:56:17Z",
+        "pool": "solana:DEMO-POOL",
+        "scanner": null,
+        "token": "solana:DEMO",
+        "unique_wallets": null,
+        "volume": null
+      },
+      {
+        "age_seconds": null,
+        "buy_sell": null,
+        "decision_status": "OBSERVED",
+        "integrity_verdict": "UNKNOWN",
+        "liquidity": null,
+        "market_cap": null,
+        "mint": null,
+        "narrative_match": null,
+        "observed_at": "2026-11-24T16:56:17Z",
+        "pool": "solana:THIN-POOL",
+        "scanner": null,
+        "token": "solana:THIN",
+        "unique_wallets": null,
+        "volume": null
+      },
+      {
+        "age_seconds": null,
+        "buy_sell": null,
+        "decision_status": "OBSERVED",
+        "integrity_verdict": "UNKNOWN",
+        "liquidity": null,
+        "market_cap": null,
+        "mint": null,
+        "narrative_match": null,
+        "observed_at": "2026-11-24T16:56:32Z",
+        "pool": "solana:DEMO-POOL",
+        "scanner": null,
+        "token": "solana:DEMO",
+        "unique_wallets": null,
+        "volume": null
+      },
+      {
+        "age_seconds": null,
+        "buy_sell": null,
+        "decision_status": "OBSERVED",
+        "integrity_verdict": "UNKNOWN",
+        "liquidity": null,
+        "market_cap": null,
+        "mint": null,
+        "narrative_match": null,
+        "observed_at": "2026-11-24T16:56:32Z",
+        "pool": "solana:THIN-POOL",
+        "scanner": null,
+        "token": "solana:THIN",
+        "unique_wallets": null,
+        "volume": null
+      }
+    ],
+    "qualification": "EXPLORATORY",
+    "scanners": [
+      {
+        "activation": "SHADOW",
+        "code": "S01",
+        "configuration_version": "scanner-profiles-v1",
+        "id": "S01",
+        "missing_features": [],
+        "name": "Early Ignition",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "First credible acceleration out of quiet launch activity.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "S02",
+        "configuration_version": "scanner-profiles-v1",
+        "id": "S02",
+        "missing_features": [],
+        "name": "Organic Growth",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Broadening wallet participation without concentration.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "S03",
+        "configuration_version": "scanner-profiles-v1",
+        "id": "S03",
+        "missing_features": [],
+        "name": "Graduation",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Progress toward a completed bonding-curve migration.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "S04",
+        "configuration_version": "scanner-profiles-v1",
+        "id": "S04",
+        "missing_features": [],
+        "name": "Momentum",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Sustained price and volume continuation.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "S05",
+        "configuration_version": "scanner-profiles-v1",
+        "id": "S05",
+        "missing_features": [],
+        "name": "Quiet Accumulation",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Buy pressure without proportional attention.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "S06",
+        "configuration_version": "scanner-profiles-v1",
+        "id": "S06",
+        "missing_features": [],
+        "name": "Reacceleration",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Second expansion after a contraction phase.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      }
+    ]
+  },
+  "memetic": {
+    "momentum": {
+      "cultural": [],
+      "financial": [],
+      "memetic": []
+    },
+    "narratives": [
+      {
+        "aliases": [],
+        "attention_integrity": "UNKNOWN",
+        "canonical": "demo-culture",
+        "detected_at": null,
+        "evidence_coverage": "UNKNOWN",
+        "id": "demo-culture",
+        "lifecycle": "UNKNOWN",
+        "memetic_score": 94.3,
+        "related_mints": [],
+        "saturation_risk": "UNKNOWN",
+        "score_bounds": "0-100",
+        "sources": [],
+        "taxonomy": "UNKNOWN"
+      }
+    ],
+    "providers": [
+      {
+        "id": "virlo",
+        "note": "Cultural intelligence provider. Integration implemented; qualification incomplete.",
+        "state": "PARTIAL"
+      },
+      {
+        "id": "bitquery",
+        "note": "On-chain archive. About 8 hours of retention; archive endpoint returned HTTP 402.",
+        "state": "PARTIAL"
+      },
+      {
+        "id": "dexscreener",
+        "note": "Market data provider used by the paper runtime.",
+        "state": "OBSERVED"
+      },
+      {
+        "id": "openrouter",
+        "note": "Model provider. Configured models are not empirically qualified.",
+        "state": "PARTIAL"
+      },
+      {
+        "id": "x-intelligence",
+        "note": "No verified configuration in this repository.",
+        "state": "UNVERIFIED"
+      },
+      {
+        "id": "news-intelligence",
+        "note": "No verified configuration in this repository.",
+        "state": "UNVERIFIED"
+      }
+    ],
+    "scanners": [
+      {
+        "activation": "SHADOW",
+        "code": "N01",
+        "configuration_version": "memetic-scanners-v1",
+        "id": "N01",
+        "missing_features": [],
+        "name": "Genesis Hunter",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Earliest cultural evidence of a narrative.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "N02",
+        "configuration_version": "memetic-scanners-v1",
+        "id": "N02",
+        "missing_features": [],
+        "name": "Replication Hunter",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Independent replication across creators.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "N03",
+        "configuration_version": "memetic-scanners-v1",
+        "id": "N03",
+        "missing_features": [],
+        "name": "Cross-Cultural Breakout",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Narrative crossing community boundaries.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "N04",
+        "configuration_version": "memetic-scanners-v1",
+        "id": "N04",
+        "missing_features": [],
+        "name": "Narrative Migration",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Narrative moving to a new platform or language.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "N05",
+        "configuration_version": "memetic-scanners-v1",
+        "id": "N05",
+        "missing_features": [],
+        "name": "Resurrection Hunter",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Dormant narrative returning to attention.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      },
+      {
+        "activation": "SHADOW",
+        "code": "N06",
+        "configuration_version": "memetic-scanners-v1",
+        "id": "N06",
+        "missing_features": [],
+        "name": "Narrative Divergence",
+        "profiles": [
+          {
+            "activation": "SHADOW",
+            "id": "P01",
+            "name": "Aggressive"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P02",
+            "name": "Balanced"
+          },
+          {
+            "activation": "SHADOW",
+            "id": "P03",
+            "name": "Selective"
+          }
+        ],
+        "purpose": "Narrative splitting into distinct variants.",
+        "qualification": "EXPLORATORY",
+        "recent_signals": null
+      }
+    ]
+  },
+  "overview": {
+    "creator_fees_cents": 100000,
+    "data_quality": "SYNTHETIC_DEMO",
+    "intelligence_available_cents": 16000,
+    "intelligence_expenditure_cents": null,
+    "notes": [
+      "Intelligence expenditure is unavailable: no provider credit observation was recorded.",
+      "Operational runway is unavailable: no funded provider balance was observed."
+    ],
+    "observed_at": "2026-11-24T16:56:32Z",
+    "open_position_records": [
+      {
+        "entry_at": "2026-11-24T16:56:32Z",
+        "entry_cents": 10000,
+        "entry_price": "0.35",
+        "mark_price_usd": "0.35",
+        "pair_id": "solana:DEMO-POOL",
+        "token": "solana:DEMO"
+      }
+    ],
+    "open_positions": 1,
+    "operating_capital_cents": 69990,
+    "operational_balance_cents": 7970,
+    "operational_runway_days": null,
+    "profit_treasury_cents": 0,
+    "realized_pnl_cents": 1980,
+    "trading_balance_cents": 46020,
+    "unrealized_pnl_cents": 0
+  },
+  "publication_delay_seconds": 0,
+  "published_at": "2026-11-24T16:56:32Z",
+  "qualification": [
+    {
+      "detail": "Paper trading runtime with deterministic policy enforcement and unit tests.",
+      "domain": "Trading Runtime",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "detail": "Bitquery archive depth is about 8 hours and the historical archive endpoint returned HTTP 402.",
+      "domain": "Market Data Providers",
+      "last_failure": "Bitquery archive endpoint HTTP 402",
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Virlo integration is implemented; provider qualification is not complete.",
+      "domain": "Cultural Data Providers",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "OpenRouter is configured. Model availability is configured, not empirically qualified.",
+      "domain": "Model Providers",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Groundhog 1 and Bison 1 are distinct decision routes. Calibration is not established.",
+      "domain": "Decision Models",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Wallet registry and provisioning are implemented in WO-009.",
+      "domain": "Wallet Provisioning",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "detail": "Payment intents and paper transitions exist. Live settlement is not qualified.",
+      "domain": "Payment Gateway",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Native x402 settlement is not verified for the configured providers.",
+      "domain": "x402 Settlement",
+      "last_failure": null,
+      "last_observation": null,
+      "status": "UNVERIFIED"
+    },
+    {
+      "detail": "Prepaid provider credit accounting exists; provider balance observation is unavailable.",
+      "domain": "Prepaid Funding",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Allowlisted, sanitized snapshot exporter with digest and idempotent publication.",
+      "domain": "Public Evidence Projection",
+      "last_failure": null,
+      "last_observation": "2026-11-24T17:00:00Z",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "detail": "Research artifacts exist. Unresolved audit findings mean results are not validated ground truth.",
+      "domain": "Historical Research",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Memetic engine and fixtures exist; narrative clusters are not empirically qualified.",
+      "domain": "Memetic Research",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "PARTIAL"
+    },
+    {
+      "detail": "Deterministic paper trading with an isolated demo database.",
+      "domain": "Paper Trading",
+      "last_failure": null,
+      "last_observation": "2026-11-24T15:26:00Z",
+      "status": "IMPLEMENTED"
+    },
+    {
+      "detail": "Live trading is not authorized. This work order does not enable it.",
+      "domain": "Live Trading",
+      "last_failure": null,
+      "last_observation": null,
+      "status": "BLOCKED"
+    }
+  ],
+  "research": {
+    "calibration": [
+      {
+        "id": "baseline-v1",
+        "note": "Existing paper baseline.",
+        "state": "ACTIVE_CONFIG"
+      },
+      {
+        "id": "decision-matrix-v2",
+        "note": "Decision matrix candidate. Activation is false.",
+        "state": "CHALLENGER_CONFIG"
+      },
+      {
+        "id": "scanner-profiles-v1",
+        "note": "Six scanner families with three profiles. Shadow only.",
+        "state": "SHADOW_CONFIG"
+      },
+      {
+        "id": "naive-first-trade-reference",
+        "note": "Rejected as a reference price method after the forensic audit.",
+        "state": "REJECTED_CONFIG"
+      }
+    ],
+    "edge_status": "NOT_VALIDATED",
+    "runs": [
+      {
+        "category": "Quantitative Market Research",
+        "configuration_version": "research-v2.1",
+        "dataset": "Bitquery Solana archive",
+        "evidence_state": "OBSERVED",
+        "findings": [
+          "54 tokens reconstructed; 23 with observed graduation; 8 truncated by archive depth."
+        ],
+        "id": "tatd-20261124T125632Z",
+        "limitations": [
+          "Bitquery archive depth is about 8 hours; early trades are truncated for some tokens."
+        ],
+        "observation_period": "archive depth 8h",
+        "quality_gates": [
+          {
+            "detail": "cohort C03_GRADUATED",
+            "name": "Baseline comparison",
+            "status": "UNVERIFIED_BASELINE"
+          }
+        ],
+        "reproduction": "See artifact index and manifest in the run directory.",
+        "sample_size": 54,
+        "title": "Historical Market Research"
+      },
+      {
+        "category": "Research",
+        "configuration_version": "research-v2.1",
+        "dataset": "Artifact bundle",
+        "evidence_state": "OBSERVED",
+        "findings": [
+          "18 scanner configurations evaluated; 0 identifiable and 18 not identifiable.",
+          "Migration integrity audit: CONFIRMED_RAW_OBSERVATION 16, FIRST_TRADE_REFERENCE_OUTLIER 15, MIGRATION_PATH_INCOMPLETE 7, MIGRATION_PRICE_DISCONTINUITY 9, MISSING_ONCHAIN_EVIDENCE 3, NAIVE_REFERENCE_95PCT_LOSS 17, NO_RAW_AMOUNT_EVIDENCE 3, PARTIAL_PRE_MIGRATION_ONLY 4, POST_MIGRATION_COLLAPSE 16, PRE_MIGRATION_COLLAPSE 20, ROBUST_REFERENCE_95PCT_LOSS 15."
+        ],
+        "id": "remediation-20261124T151500Z",
+        "limitations": [
+          "Scanner calibration remains exploratory; activation is false.",
+          "Provider first-trade reference is inflated for some tokens; naive 95% loss counts overstate collapses."
+        ],
+        "observation_period": "UNKNOWN",
+        "quality_gates": [
+          {
+            "detail": "Only the artifact index is available.",
+            "name": "Artifact presence",
+            "status": "PARTIAL"
+          }
+        ],
+        "reproduction": "See artifact index and manifest in the run directory.",
+        "sample_size": null,
+        "title": "remediation-20261124T151500Z"
+      },
+      {
+        "category": "Research",
+        "configuration_version": "research-v2.1",
+        "dataset": "Artifact bundle",
+        "evidence_state": "OBSERVED",
+        "findings": [],
+        "id": "forensic-20261124T151500Z",
+        "limitations": [],
+        "observation_period": "UNKNOWN",
+        "quality_gates": [
+          {
+            "detail": "371 archive entries; sha256 dfaf9ca37e6d9ad4…",
+            "name": "Credential scan",
+            "status": "PASS"
+          }
+        ],
+        "reproduction": "See artifact index and manifest in the run directory.",
+        "sample_size": null,
+        "title": "forensic-20261124T151500Z"
+      }
+    ]
+  },
+  "schema_version": "1.0",
+  "snapshot_digest": "sha256:ceae4efec9ff6e46135b0b847402cd5e38a1950042bdd6218fd794af19590d56",
+  "snapshot_id": "snap-20261124T165632Z-6e2fa5f56bef",
+  "source_runtime_id": "tatd-paper-runtime",
+  "system": {
+    "freshness": "CURRENT",
+    "last_failure": null,
+    "last_observation": "2026-11-24T16:56:32Z",
+    "mode": "PAPER",
+    "models": [
+      {
+        "configured": true,
+        "id": "claude-sonnet-5-5",
+        "invoked": true,
+        "label": "claude-sonnet-5-5",
+        "last_invoked": "2026-11-24T16:56:02Z",
+        "qualified": false,
+        "role": "narrative"
+      },
+      {
+        "configured": true,
+        "id": "glm-5.3-flash",
+        "invoked": true,
+        "label": "glm-5.3-flash",
+        "last_invoked": "2026-11-24T16:56:02Z",
+        "qualified": false,
+        "role": "health"
+      },
+      {
+        "configured": true,
+        "id": "deepseek-flash",
+        "invoked": true,
+        "label": "deepseek-flash",
+        "last_invoked": "2026-11-24T16:56:02Z",
+        "qualified": false,
+        "role": "scout"
+      },
+      {
+        "configured": true,
+        "id": "decision-models/baseten-bison-latest",
+        "invoked": true,
+        "label": "decision-models/baseten-bison-latest",
+        "last_invoked": "2026-11-24T16:56:02Z",
+        "qualified": false,
+        "role": "trade"
+      },
+      {
+        "configured": true,
+        "id": "decision-models/baseten-groundhog-latest",
+        "invoked": true,
+        "label": "decision-models/baseten-groundhog-latest",
+        "last_invoked": "2026-11-24T16:56:17Z",
+        "qualified": false,
+        "role": "treasury"
+      }
+    ],
+    "providers": [],
+    "qualification_state": "PARTIAL",
+    "runtime_state": "SNAPSHOT"
+  },
+  "treasury": {
+    "actions": [
+      {
+        "action": "BUYBACK_BURN",
+        "amount_cents": 1980,
+        "id": "15",
+        "state": "paper_allocated",
+        "timestamp": "2026-11-24T16:56:17Z"
+      },
+      {
+        "action": "HOLD_RESERVE",
+        "amount_cents": 0,
+        "id": "9",
+        "state": "hold",
+        "timestamp": "2026-11-24T16:56:02Z"
+      }
+    ],
+    "automation_paused": false,
+    "available_cents": 0,
+    "policy_verdict": "EVALUATED",
+    "recommendation": "BUYBACK_BURN"
+  }
+}

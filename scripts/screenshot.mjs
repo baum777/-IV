@@ -4,6 +4,11 @@ import path from "node:path";
 
 const BASE = process.env.SCREENSHOT_BASE || "http://127.0.0.1:3100";
 const OUT = process.env.SCREENSHOT_OUT || path.join(process.cwd(), "review-artifacts");
+// Protected Vercel deployments answer 302 to anonymous requests. Set
+// SCREENSHOT_BYPASS to the project's automation bypass secret to screenshot
+// the real preview instead of the SSO interstitial.
+const BYPASS = process.env.SCREENSHOT_BYPASS || "";
+const EXTRA_HEADERS = BYPASS ? { "x-vercel-protection-bypass": BYPASS } : {};
 
 const SHOTS = [
   { name: "desktop-landing", path: "/", width: 1440, height: 900 },
@@ -27,7 +32,10 @@ await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || "/usr/bin/google-chrome" });
 
 for (const shot of SHOTS) {
-  const page = await browser.newPage({ viewport: { width: shot.width, height: shot.height } });
+  const page = await browser.newPage({
+    viewport: { width: shot.width, height: shot.height },
+    extraHTTPHeaders: EXTRA_HEADERS,
+  });
   const errors = [];
   page.on("console", (message) => {
     if (message.type() === "error") errors.push(message.text());

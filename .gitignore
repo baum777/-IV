@@ -240,3 +240,4 @@ test-results/
 *.sqlite3-journal
 tatd-research/
 evidence/
+.vercel

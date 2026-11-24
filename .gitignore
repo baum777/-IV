@@ -223,6 +223,7 @@ __marimo__/
 .streamlit/secrets.toml
 
 # --- Node / Next.js observatory ---
+!/lib/
 node_modules/
 .next/
 out/
@@ -240,4 +241,5 @@ test-results/
 *.sqlite3-journal
 tatd-research/
 evidence/
+!/components/evidence/
 .vercel

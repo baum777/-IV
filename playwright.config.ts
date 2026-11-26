@@ -9,7 +9,8 @@ export default defineConfig({
   reporter: [["list"]],
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || "http://127.0.0.1:3100",
-    trace: "retain-on-failure",
+    storageState: process.env.PLAYWRIGHT_STORAGE_STATE || undefined,
+    trace: process.env.PLAYWRIGHT_BASE_URL ? "off" : "retain-on-failure",
     launchOptions: { executablePath: process.env.CHROME_PATH || "/usr/bin/google-chrome" },
   },
   projects: [
@@ -21,8 +22,8 @@ export default defineConfig({
       use: { ...devices["iPhone 12"], browserName: "chromium", viewport: { width: 390, height: 844 } },
     },
   ],
-  webServer: {
-    command: "npm run start -- -p 3100",
+  webServer: process.env.PLAYWRIGHT_BASE_URL ? undefined : {
+    command: "npm run start -- -H 127.0.0.1 -p 3100",
     url: "http://127.0.0.1:3100",
     reuseExistingServer: true,
     timeout: 60_000,

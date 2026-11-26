@@ -23,7 +23,7 @@ export function MobileNav() {
               <Link
                 href={item.href}
                 className={`flex flex-col items-center gap-1 py-2.5 text-[10px] ${
-                  active ? "text-brand-gold" : "text-text-muted"
+                  active ? "text-brand-gold" : "text-text-secondary"
                 }`}
               >
                 <span aria-hidden className="text-sm leading-none">{item.glyph}</span>

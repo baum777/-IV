@@ -20,7 +20,7 @@ export function SiteHeader({ snapshot }: { snapshot: PublicSnapshot }) {
           </span>
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="site-archive-status flex items-center gap-2">
           <ExecutionModeIndicator mode={snapshot.execution_mode} />
           <span className="hidden md:inline-flex">
             <FreshnessIndicator state={snapshot.system.freshness} />

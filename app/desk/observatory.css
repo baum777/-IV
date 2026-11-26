@@ -1,0 +1,89 @@
+.obs {
+  --obs-line: #303643;
+  --obs-muted: #adb5c4;
+  --obs-gold: #ebcb88;
+  --obs-bg: #10141c;
+  padding: clamp(12px, 2.7vw, 36px);
+  color: #edf0f6;
+}
+.obs-header {
+  padding: 12px 0 21px;
+  background-image: linear-gradient(to right, #30364355 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%;
+}
+.obs-header p, .obs-caption, .obs-status, .obs-lifecycle, .obs-filter {
+  font: 500 .72rem var(--font-mono), monospace;
+  letter-spacing: .06em;
+}
+.obs-header p, .obs-caption { color: var(--obs-gold); }
+.obs-header p span { padding-inline: .3em; }
+.obs-header h1 { font: 600 clamp(2.6rem, 6vw, 4.8rem)/1 var(--font-display), sans-serif; letter-spacing: -.065em; }
+.obs-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; border: 1px solid var(--obs-line); background: var(--obs-line); }
+.obs-panel { min-width: 0; background: var(--obs-bg); padding: clamp(12px, 2vw, 22px); overflow-wrap: anywhere; }
+.obs-panel h2 { font: 600 1.21rem var(--font-display), sans-serif; margin-bottom: .8rem; }
+.obs-caption { margin: -.35rem 0 .8rem; }
+.obs-session-top, .obs-agent-title, .obs-equity, .obs-health li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; flex-wrap: wrap;
+}
+.obs-runtime { font: 500 clamp(1.3rem, 3vw, 2.15rem) var(--font-mono), monospace; }
+.obs-status { display: inline-block; color: var(--obs-muted); border: 1px solid var(--obs-line); padding: .2rem .45rem; }
+.obs-status[data-state="CONNECTED"] { color: #9be1be; }
+.obs-status[data-state="DEGRADED"], .obs-status[data-state="RATE_LIMITED"], .obs-status[data-state="STALE"],
+.obs-status[data-state="SNAPSHOT"] { color: var(--obs-gold); }
+.obs-progress { height: 3px; margin: .6rem 0; background: var(--obs-line); }
+.obs-progress span { display: block; height: 100%; background: var(--obs-gold); transform-origin: left; }
+.obs-progress[data-active="true"] span { transition: transform 1s linear; }
+.obs-data { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 110px), 1fr)); gap: .55rem 1rem; margin-top: .65rem; }
+.obs-data dt, .obs-health small, .obs-stream small, .obs-agent-title p, .obs-empty { color: var(--obs-muted); }
+.obs-data dt, .obs-data dd, .obs-health small, .obs-stream small { font: 400 .73rem/1.45 var(--font-mono), monospace; }
+.obs-data dd { font-variant-numeric: tabular-nums; margin: .12rem 0 0; }
+.obs-agents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--obs-line); }
+.obs-agent { padding: .7rem; background: #151a23; border-top: 2px solid var(--element); }
+.obs-agent[data-element="FIRE"] { --element: #f1a18c; }
+.obs-agent[data-element="WATER"] { --element: #92c7ef; }
+.obs-agent[data-element="AIR"] { --element: #dad7f5; }
+.obs-agent[data-element="EARTH"] { --element: #bdcb8c; }
+.obs-agent-title { justify-content: flex-start; align-items: center; color: var(--element); }
+.obs-glyph { font: 1.9rem/1.2 "DejaVu Sans", sans-serif; }
+.obs-glyph[data-activity] { animation: obs-glyph 1.6s ease-in-out infinite alternate; }
+.obs-glyph[data-activity="WAITING"] { animation-duration: 3s; --glyph-scale: 1; }
+.obs-glyph[data-activity="PROPOSING"] { animation-duration: .8s; --glyph-scale: 1.15; }
+.obs-glyph[data-activity="INTERPRETING"] { --glyph-angle: 8deg; }
+.obs-glyph[data-activity="EVALUATING"] { --glyph-angle: -8deg; animation-duration: 1.2s; }
+.obs-agent-title h3, .obs-agent-title p { font: 500 .77rem var(--font-mono), monospace; }
+.obs-equity { padding: .5rem 0; border-block: 1px solid var(--obs-line); }
+.obs-equity strong { font: 500 1.4rem var(--font-mono), monospace; font-variant-numeric: tabular-nums; color: var(--obs-gold); }
+.obs-empty, .obs-health strong, .obs-stream p, .obs-chart figcaption { font-size: .82rem; }
+.obs-stream { max-block-size: 24rem; overflow: auto; scrollbar-color: #596476 transparent; }
+.obs-stream li, .obs-health li { padding-block: .55rem; border-block-end: 1px solid var(--obs-line); }
+.obs-stream li { border-inline-start: 2px solid #55677e; padding-inline: .65rem; }
+.obs-stream li[data-phase="Authority"], .obs-stream li[data-phase="HYPOTHESIZED"] { border-inline-start-color: var(--obs-gold); }
+.obs-stream li[data-phase="Execution"], .obs-stream li[data-phase="TESTED"] { border-inline-start-color: #9be1be; }
+.obs-stream li[data-phase="Reconciliation"], .obs-stream li[data-phase="REVISED"] { border-inline-start-color: #c8b2ee; }
+.obs-stream li > :is(strong,span,small), .obs-health small { display: block; }
+.obs-stream li > strong, .obs-stream li > span { font: 500 .75rem var(--font-mono), monospace; }
+.obs-stream li, .obs-health .obs-status, .obs-chart polyline { animation: obs-in .28s ease-out both; }
+.obs-subhead { font-size: .87rem; margin: .7rem 0 .3rem; }
+.obs-chart { color: var(--obs-gold); margin-bottom: .6rem; }
+.obs-chart svg { width: 100%; max-height: 90px; display: block; }
+.obs-lifecycle { display: flex; flex-wrap: wrap; gap: .3rem .7rem; margin-bottom: .7rem; color: var(--obs-gold); }
+.obs-lifecycle li + li::before { content: "→"; padding-right: .5rem; }
+.obs-filter { display: flex; align-items: center; gap: .5rem; }
+.obs-filter select { background: #1b2130; padding: .35rem; border: 1px solid var(--obs-line); }
+@keyframes obs-in { from { opacity: .55; transform: translateY(3px); } }
+@keyframes obs-glyph { to { transform: rotate(var(--glyph-angle, 0deg)) scale(var(--glyph-scale, 1.08)); opacity: .65; } }
+@media (min-width: 720px) {
+  .obs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .obs-session, .obs-instances, .obs-health { grid-column: 1 / -1; }
+  .obs-agents { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 1250px) {
+  .obs-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .obs-panel { grid-column: span 2; }
+  .obs-session, .obs-instances { grid-column: 1 / -1; }
+  .obs-genesis, .obs-health { grid-column: span 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .obs *, .obs *::before, .obs *::after { animation: none !important; transition: none !important; }
+}
+body:has(.obs) .site-archive-status { display: none; }

@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   outputFileTracingIncludes: {
-    "/**": ["./public/data/**/*.json"],
+    "/**": ["./public/data/**/*.json", "./public/data/observatory-v1.sha256"],
   },
   async headers() {
     return [
